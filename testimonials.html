@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials | Ego &amp; Soul Integration</title>
+<meta name="description" content="Stories from people who have worked with Sal March through his courses and 1-1 sessions.">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Jost:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="nav__brand" href="index.html">
+      <img src="logo-black.png" alt="">
+      Ego &amp; Soul Integration
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Sal</a></li>
+      <li><a href="course.html">Course</a></li>
+      <li><a href="sessions.html">1-1 Sessions</a></li>
+      <li><a href="testimonials.html" aria-current="page">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Testimonials</p>
+      <h1>In Their Words</h1>
+      <p class="lede">Stories from people who've walked this path.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container--wide">
+
+      <!--
+        EDITING NOTE FOR VICKY:
+        Each card below is a placeholder — replace the <blockquote> text with
+        the real testimonial, and remove the "is-placeholder" class from the
+        <div class="testimonial-card ..."> once real content is in.
+        Keep it simple: no code needed beyond replacing the text between the tags.
+      -->
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Bob Prentice will go here.</blockquote>
+          <cite>&mdash; Bob Prentice</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Vicky Searles will go here.</blockquote>
+          <cite>&mdash; Vicky Searles</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Astrid will go here.</blockquote>
+          <cite>&mdash; Astrid</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Jenny March will go here.</blockquote>
+          <cite>&mdash; Jenny March</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Clare will go here.</blockquote>
+          <cite>&mdash; Clare</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Gary will go here.</blockquote>
+          <cite>&mdash; Gary</cite>
+        </div>
+
+        <div class="testimonial-card is-placeholder">
+          <blockquote>Testimonial from Jim will go here.</blockquote>
+          <cite>&mdash; Jim</cite>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" style="text-align:center;">
+    <div class="container">
+      <h2>Curious what this could look like for you?</h2>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn--gold" href="course.html">Explore the course</a>
+        <a class="btn btn--ghost" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container--wide">
+    <div class="footer__top">
+      <a class="footer__brand" href="index.html">
+        <img src="logo-white.png" alt="">
+        Ego &amp; Soul Integration
+      </a>
+      <ul class="footer__links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="course.html">Course</a></li>
+        <li><a href="sessions.html">1-1 Sessions</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <small>&copy; <span id="year"></span> Sal March &mdash; Ego &amp; Soul Integration.</small>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
