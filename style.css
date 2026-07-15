@@ -1,25 +1,34 @@
 /* =========================================================
    EGO & SOUL INTEGRATION — Sal March
-   Design tokens: deep forest green, mustard/gold, dark navy,
-   deep maroon, warm parchment. Display serif (Fraunces) paired
-   with a geometric label face (Jost) and a clean body sans (Inter).
+   Design tokens (v2 palette): sage green, deep forest green,
+   dark navy, warm terracotta, blush beige, deep wine maroon,
+   muted red. Display serif (Fraunces) paired with a geometric
+   label face (Jost) and a clean body sans (Inter).
    Signature motif: the dotted concentric ring lifted from the
    logo itself, used as an ambient frame and section divider.
    ========================================================= */
 
 :root {
-  /* ---- palette ---- */
-  --forest: #1f3d2e;
-  --forest-deep: #142920;
-  --navy: #1b2536;
-  --gold: #c8983c;
-  --gold-soft: #e2c07f;
-  --maroon: #6b2737;
-  --paper: #f6f2e8;
-  --paper-dim: #efe9db;
-  --ink: #23241e;
-  --ink-soft: #52544a;
-  --line: rgba(31, 61, 46, 0.16);
+  /* ---- palette (source swatches) ---- */
+  --sage: #b7cdb1;
+  --forest: #38574d;
+  --forest-deep: #0d1d35;
+  --terracotta: #d38f6d;
+  --terracotta-soft: #e7c6b6;
+  --beige: #d8c2b6;
+  --maroon: #653640;
+  --red: #bc544d;
+
+  /* ---- palette (semantic roles — kept from v1 so the rest of the
+     stylesheet below doesn't need to change) ---- */
+  --navy: #0d1d35;
+  --gold: var(--terracotta);
+  --gold-soft: var(--terracotta-soft);
+  --paper: #ede2d9;
+  --paper-dim: #dae5d7;
+  --ink: #1e2a2a;
+  --ink-soft: #55645d;
+  --line: rgba(13, 29, 53, 0.15);
 
   /* ---- type ---- */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -362,7 +371,7 @@ p:last-child { margin-bottom: 0; }
   width: 34px;
   height: 34px;
   margin: 0 auto 1rem;
-  color: var(--maroon);
+  color: var(--red);
 }
 .doorway h3 { margin-bottom: 0.4rem; }
 .doorway p { font-size: 0.95rem; margin-bottom: 0.9rem; }
