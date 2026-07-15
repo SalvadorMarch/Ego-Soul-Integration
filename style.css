@@ -20,7 +20,7 @@
 
   /* ---- palette (semantic roles — kept from v1 so the rest of the
      stylesheet below doesn't need to change) ---- */
-  --navy: var(--forest);
+  --navy: var(--forest-deep);
   --gold: var(--terracotta);
   --gold-soft: var(--terracotta-soft);
   --paper: #ede2d9;
@@ -121,6 +121,13 @@ p:last-child { margin-bottom: 0; }
 .section--dim {
   background: var(--paper-dim);
 }
+
+/* A warm, lighter alternative to section--dark — used where a section
+   sits directly above the navy footer, so the two don't blend together. */
+.section--warm {
+  background: var(--terracotta-soft);
+}
+.section--warm .btn--ghost { border-color: var(--forest-deep); color: var(--forest-deep); }
 
 /* ---------------------------------------------------------
    Dotted ring motif — signature element
