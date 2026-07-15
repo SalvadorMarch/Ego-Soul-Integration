@@ -1,16 +1,15 @@
 /* =========================================================
    EGO & SOUL INTEGRATION — Sal March
-   Design tokens (v2 palette): sage green, deep forest green,
-   dark navy, warm terracotta, blush beige, deep wine maroon,
-   muted red. Display serif (Fraunces) paired with a geometric
-   label face (Jost) and a clean body sans (Inter).
+   Design tokens (v3 palette): deep forest green, dark navy,
+   warm terracotta, blush beige, deep wine maroon, muted red.
+   Display serif (Fraunces) paired with a geometric label face
+   (Jost) and a clean body sans (Inter).
    Signature motif: the dotted concentric ring lifted from the
    logo itself, used as an ambient frame and section divider.
    ========================================================= */
 
 :root {
   /* ---- palette (source swatches) ---- */
-  --sage: #b7cdb1;
   --forest: #38574d;
   --forest-deep: #0d1d35;
   --terracotta: #d38f6d;
@@ -21,11 +20,11 @@
 
   /* ---- palette (semantic roles — kept from v1 so the rest of the
      stylesheet below doesn't need to change) ---- */
-  --navy: #0d1d35;
+  --navy: var(--forest);
   --gold: var(--terracotta);
   --gold-soft: var(--terracotta-soft);
   --paper: #ede2d9;
-  --paper-dim: #dae5d7;
+  --paper-dim: #e6d8cb;
   --ink: #1e2a2a;
   --ink-soft: #55645d;
   --line: rgba(13, 29, 53, 0.15);
