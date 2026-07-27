@@ -210,7 +210,7 @@ p:last-child { margin-bottom: 0; }
   white-space: nowrap;
   flex-shrink: 0;
 }
-.nav__brand img { height: 30px; width: 30px; }
+.nav__brand img { height: 42px; width: 42px; }
 
 .nav__links {
   display: flex;
@@ -395,6 +395,15 @@ p:last-child { margin-bottom: 0; }
 /* ---------------------------------------------------------
    Content blocks
    --------------------------------------------------------- */
+.about-portrait {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 24px 50px -20px rgba(13, 29, 53, 0.4);
+}
+
 .prose h2 { margin-top: 2.4em; }
 .prose h2:first-child { margin-top: 0; }
 .prose ul { padding-left: 1.2em; }
@@ -454,12 +463,16 @@ p:last-child { margin-bottom: 0; }
 }
 @media (max-width: 600px) { .toolkit { grid-template-columns: 1fr; } }
 .toolkit li {
-  padding: 0.6rem 0.9rem;
-  background: #fff;
-  border: 1px solid var(--line);
+  padding: 0.8rem 0.9rem;
+  background: var(--terracotta-soft);
+  border: 1px solid transparent;
   border-radius: 8px;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--forest-deep);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* booking summary card */
@@ -677,7 +690,7 @@ p:last-child { margin-bottom: 0; }
   font-size: 0.85rem;
   color: var(--paper);
 }
-.footer__brand img { height: 28px; width: 28px; }
+.footer__brand img { height: 38px; width: 38px; }
 .footer__links {
   display: flex;
   gap: 1.4rem;
