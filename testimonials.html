@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Jost:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -38,7 +38,7 @@
     <div class="container">
       <p class="eyebrow">Testimonials</p>
       <h1>In Their Words</h1>
-      <p class="lede">Stories from people who've walked this path.</p>
+      <p class="lede">Stories from people who've walked this path. Click a card to read the full testimonial.</p>
     </div>
   </section>
 
@@ -47,50 +47,14 @@
 
       <!--
         EDITING NOTE FOR VICKY:
-        Each card below is a placeholder — replace the <blockquote> text with
-        the real testimonial, and remove the "is-placeholder" class from the
-        <div class="testimonial-card ..."> once real content is in.
-        Keep it simple: no code needed beyond replacing the text between the tags.
+        Each testimonial's full text lives in the "testimonials" array inside
+        the <script> tag near the bottom of this file. To add, remove or edit
+        a testimonial, just edit that array — the cards and pop-up below are
+        generated automatically from it. No other part of the page needs to change.
       -->
 
-      <div class="testimonial-grid">
+      <div class="testimonial-grid" id="testimonial-grid"></div>
 
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Bob Prentice will go here.</blockquote>
-          <cite>&mdash; Bob Prentice</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Vicky Searles will go here.</blockquote>
-          <cite>&mdash; Vicky Searles</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Astrid will go here.</blockquote>
-          <cite>&mdash; Astrid</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Jenny March will go here.</blockquote>
-          <cite>&mdash; Jenny March</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Clare will go here.</blockquote>
-          <cite>&mdash; Clare</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Gary will go here.</blockquote>
-          <cite>&mdash; Gary</cite>
-        </div>
-
-        <div class="testimonial-card is-placeholder">
-          <blockquote>Testimonial from Jim will go here.</blockquote>
-          <cite>&mdash; Jim</cite>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -105,6 +69,15 @@
   </section>
 
 </main>
+
+<!-- Testimonial pop-up -->
+<div class="testimonial-overlay" id="testimonial-overlay">
+  <div class="testimonial-modal">
+    <button class="testimonial-close" id="testimonial-close" aria-label="Close">&times;</button>
+    <blockquote id="testimonial-modal-text"></blockquote>
+    <cite id="testimonial-modal-name"></cite>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container--wide">
@@ -127,5 +100,476 @@
 
 <script src="main.js?v=4"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  // Each testimonial's name and full text.
+  // To add a new one in future, just add another { name, text } object below.
+  const testimonials = [
+    {
+      name: "Bob",
+      text: `I am writing these 6 months after the first time I met Sal. I had asked him what he did for work and he showed me by raising my arm and proving to me that there was something beyond western Science understanding. There and then I knew I needed his help.
+
+In our second session, we worked using levels of ego-soul integration, I learned that there were skeletons in the back of my mind, and emotions all the way to childhood that were holding me back in the present. When I walked out of that session, I felt a huge weight lifted off my shoulders and strangely refreshed.
+
+He has an uncanny knack for ferreting internal conflicts both from my past as well as the present and as we deal with them, I keep growing.
+
+I was also on the verge of being a type two diabetic; my diet was terrible, and I had pains in parts of my body that no one had previously associated with certain foods I had been eating. I was overweight, and have lost over 2 stone in weight. Sal has helped me mentally, emotionally, and physically, I am now free, I play football with my son and enjoy what challenges life brings.`
+    },
+    {
+      name: "LO",
+      text: `Sal has resolved many of my long-term issues on a physical level, has highlighted nutritional deficiencies & food sensitivities, but most profoundly, has worked on and released long-held emotional issues that have held me back throughout my life.
+
+He has a fascinating life story that has led to a journey of self-development and breadth of knowledge, which he brings to his consultations. He has a deep understanding of the effects of emotional pain causing physical pain, is intuitive as well as knowledgeable, and is excellent at explaining what he does and why. I can't recommend him highly enough.`
+    },
+    {
+      name: "Vicky",
+      text: `I've been seeing Sal for about 5 years now, and I have countless examples of how he's helped me, but one story stands out to show just how powerful his channeling really is.
+
+Ten years ago, I had an unwanted pregnancy that ended in miscarriage. It's not something that comes up often for me, and honestly, it's not something I think about much in my everyday life anymore. A friend of mine recently went through a pregnancy loss of her own. The very next day, I had a session with Sal. Without me saying a single word about any of this, he pinpointed that we needed to do some emotional release work around an incident from 10 years ago. Then, completely unprompted, he said it was about the loss of a baby.
+
+Call it a spooky coincidence, call it whatever you want, but I can't fathom how Sal would have known this was sitting in the back of my mind, stirred up by something that had happened just the day before. The timing and the precision of it felt too uncanny to dismiss. We did the session, and I released suppressed, residual emotion I'd been carrying for 10 years. I came away feeling lighter, and experiencing love and gratitude toward my own body. It's powerful stuff.
+
+If you're ready to do the REAL work of unearthing trauma and baggage and expressing your suppressed emotions, I suggest you book in with Sal. As well as the other healing modalities he weaves in, this has really helped me create a sense of peace and self-acceptance I've never experienced before. I do my sessions over Zoom and they work brilliantly.`
+    },
+    {
+      name: "Astrid",
+      text: `I'd really would like to share my experiences since I've been doing sessions with Sal and Charlie for quite a while now…
+
+The support they offer me allows me to (step by step) release layers of emotional trauma and experiences which are stuck in my physical, mental and emotional body for years.
+
+Every session is different, depends on at which layer support is needed in the moment and where I am at. Nothing is forced. It's a gradual process in which Sal's support is an immense opportunity to open for what needs to come to the surface.
+
+His approach is done with so much care, compassion and allowance.
+
+Before going into a session, (a topic), Sal aligns with his aspect, which he calls Charlie, to ask Charlie for guidance and which aspect (emotional, physical, energetic) needs to be looked at. It is amazingly accurate.
+
+When working on the physical, Sal guides me to the meridian points which are blocked and gives instructions in how to open them myself.
+
+When emotional issues needed to be resolved, he guides me to the moment in this life or past lives where the emotion got stuck.
+
+Even contact and connect with parts of Self in previous life's are levels he works on. It's stunning and so accurate and to the point.
+
+Experiences aren't easy to express in words, for in this process, things happen which can't even be explained with words.
+
+On the other hand, I believe experiencing this journey in healing yourself would probably be a different one for everyone. But for someone who is ready and committed to heal the layers of self, this (Sal and Charlie's way of support) is definitely of great support and an inspirational way of helping people to heal themselves. Bring you back in alignment with heart, body, and mind coherence.`
+    },
+    {
+      name: "Catherine",
+      text: `I'm now in my 60s and have been seeing Sal regularly for well over a decade, and I can honestly say I feel healthier now than I did in my late 40s. His approach is completely holistic - whether I need help physically, emotionally, nutritionally or energetically, and on a few occasions even going back to previous lifetimes, he always seems to know exactly what my body needs, using kinesiology and his connection with 'Charlie'.
+
+With regular treatments and by following his advice, I've maintained a balanced lifestyle and good health. In fact, I haven't needed to see a doctor in all the years I've been seeing Sal, which says a great deal.
+
+What I appreciate most is that Sal never just treats the obvious problem. He looks at the whole person and works to find the underlying cause. His knowledge, intuition and genuine care are second to none, and every treatment leaves me feeling healthier, more balanced and better able to deal with whatever life throws at me.
+
+I'm incredibly grateful for everything Sal has done for me over the years.`
+    },
+    {
+      name: "KD",
+      text: `During my last session with Sal, he asked me to touch points on my body as we focussed on my childhood, and I found myself overwhelmed with sadness as the memories of past emotions took over. However, it became apparent these emotions are also in the present. I felt myself almost in a childlike state, as though Sal was communicating with my Inner Child. I had a resounding feeling of relief after the session, I felt I had let go of something I couldn't put my finger on.
+
+I am in my third week of the carnivore diet advised by Sal. Have lost 5 kilos.
+
+Right away, within the first week I noticed my digestive issues were predominantly gone! I had a lack of energy that I addressed with Sal after the first week, and he advised me on homoeopathic remedies and supplements.
+
+Before coming to Sal I suffered from headaches, stomach pains, and sinus issues. I haven't had any since, and my skin and complexion is improving.`
+    },
+    {
+      name: "Heather",
+      text: `Whilst I can hardly comprehend the methods or the vast knowledge & gift that Sal has to offer, it makes so much sense to me that any emotional or physical blockages within our body can create pain, anxiety & progressive illness.
+
+Sal seems to fathom all of these entities with a most calming persona.
+
+I know little about chakras & acupuncture, but on occasions, as he is treating me he tells me to put my hands on certain places in my body. I have experienced incredibly powerful emotions that came 'out of the blue', leaving me quite exhausted from the intensity for a day or two; but feeling more enlightened & understanding of myself.
+
+I never cried for years, somehow being with Sal brings my emotions to the surface.`
+    },
+    {
+      name: "Anonymous",
+      text: `I have seen Sal for a short while now, already I have noticed positive changes in my wellbeing. Initially, I hoped to improve my low levels of energy.
+
+With Sal's help, these have improved, and as an added bonus my sleeping has got a lot better too.
+
+I wasn't expecting to deal with childhood traumas. Working with Sal is to go on a Journey, whereby I have released previous blockages that have allowed me to feel more grounded emotionally, and I don't feel so up and down.
+
+It's great to have an open discussion with Sal, and gain a different perspective.`
+    },
+    {
+      name: "Gordon",
+      text: `When I first started visiting Sal, I was unsure what to expect. I hoped seeing someone of his experience and abilities might lead to a better sense of well-being.
+
+Sal has worked on my health, emotions and physical well-being. Each session I have learned something new. I have found myself to be a better person. I have learned with him to be honest with myself. With his direction and guidance, I feel I have overcome things that have kept me wrapped up emotionally for years.
+
+I am sleeping better, I am more positive and generally feel a stronger sense about myself. I have built a strong trust for Sal and I look forward to seeing him.`
+    },
+    {
+      name: "GP",
+      text: `In this one session with Sal we were working on a sensitive area of my left thigh, no matter how much we worked on it, it was still tender. Sal changed tack, he shared that there was emotional trauma in the thigh.
+
+Using levels of soul integration, he worked out that it was connected to a traumatic experience I had as a 14-year-old (I am now 48) when I crashed my bike and landed on the left knee, and was narrowly missed by a double-decker bus and ended in hospital.
+
+We then addressed the trauma of the event with levels of soul integration and consoled my younger self there and then. The experience was nothing short of miraculous.`
+    },
+    {
+      name: "Annette",
+      text: `Sal's treatments will blow your mind, can't recommend highly enough. I was lucky enough to have two treatments with Sal during a trip to Scotland, and felt a huge leap in my higher consciousness.`
+    },
+    {
+      name: "Garry",
+      text: `I now have had 3 sessions with Sal, The first one was interesting, Sal put me on a diet as I am overweight (25 st).
+
+The second session was more relaxing as we spoke of my youth and the problems I had had, as well as his doing acupuncture and relaxing my mind.
+
+The third was a lot of acupuncture; by the end of the session I was so relaxed I nearly fell asleep. I have also lost 2 stone in weight in these 3 weeks.
+
+Sal definitely has a talent - I am looking forwards to more sessions with him as he makes me feel better.`
+    }
+  ];
+
+  const grid = document.getElementById('testimonial-grid');
+  const overlay = document.getElementById('testimonial-overlay');
+  const modalName = document.getElementById('testimonial-modal-name');
+  const modalText = document.getElementById('testimonial-modal-text');
+  const closeBtn = document.getElementById('testimonial-close');
+
+  testimonials.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.innerHTML = `
+      <blockquote>${t.text}</blockquote>
+      <cite>&mdash; ${t.name}</cite>
+    `;
+    card.addEventListener('click', () => openTestimonial(i));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openTestimonial(i); }
+    });
+    grid.appendChild(card);
+  });
+
+  function openTestimonial(i) {
+    modalText.textContent = testimonials[i].text;
+    modalName.textContent = '— ' + testimonials[i].name;
+    overlay.classList.add('active');
+  }
+
+  function closeTestimonial() {
+    overlay.classList.remove('active');
+  }
+
+  closeBtn.addEventListener('click', closeTestimonial);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeTestimonial();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeTestimonial();
+  });
+</script>
+
 </body>
 </html>
+
+<!-- ============================================================
+     TESTIMONIALS SECTION — paste this whole block into testimonials.html
+     in place of the current placeholder testimonial cards.
+     Self-contained: styles + script are included below the cards.
+     ============================================================ -->
+
+<section class="testimonials-page">
+  <h1>Testimonials</h1>
+  <p class="testimonials-intro">Click on each name to read the full testimonial.</p>
+
+  <div class="testimonial-grid" id="testimonial-grid">
+    <!-- Cards are generated automatically from the data below -->
+  </div>
+</section>
+
+<!-- Modal overlay -->
+<div class="testimonial-overlay" id="testimonial-overlay">
+  <div class="testimonial-modal">
+    <button class="testimonial-close" id="testimonial-close" aria-label="Close">&times;</button>
+    <p class="testimonial-modal-name" id="testimonial-modal-name"></p>
+    <div class="testimonial-modal-text" id="testimonial-modal-text"></div>
+  </div>
+</div>
+
+<style>
+  .testimonials-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
+    text-align: center;
+  }
+
+  .testimonials-page h1 {
+    color: #0D1D35;
+    margin-bottom: 8px;
+  }
+
+  .testimonials-intro {
+    color: #555;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    text-align: left;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    border: 1px solid #E7C6B6;
+    border-radius: 10px;
+    padding: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(13, 29, 53, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(13, 29, 53, 0.12);
+    border-color: #D38F6D;
+  }
+
+  .testimonial-card-preview {
+    color: #333;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .testimonial-card-name {
+    color: #D38F6D;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  /* Modal overlay */
+  .testimonial-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 29, 53, 0.65);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .testimonial-overlay.active {
+    display: flex;
+  }
+
+  .testimonial-modal {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .testimonial-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #0D1D35;
+    cursor: pointer;
+  }
+
+  .testimonial-close:hover {
+    color: #D38F6D;
+  }
+
+  .testimonial-modal-name {
+    color: #D38F6D;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 16px;
+  }
+
+  .testimonial-modal-text {
+    color: #333;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+</style>
+
+<script>
+  // Each testimonial's full text and name.
+  // To add more in future, just add another object to this array.
+  const testimonials = [
+    {
+      name: "Bob",
+      text: `I am writing these 6 months after the first time I met Sal. I had asked him what he did for work and he showed me by raising my arm and proving to me that there was something beyond western Science understanding. There and then I knew I needed his help.
+
+In our second session, we worked using levels of ego-soul integration, I learned that there were skeletons in the back of my mind, and emotions all the way to childhood that were holding me back in the present. When I walked out of that session, I felt a huge weight lifted off my shoulders and strangely refreshed.
+
+He has an uncanny knack for ferreting internal conflicts both from my past as well as the present and as we deal with them, I keep growing.
+
+I was also on the verge of being a type two diabetic; my diet was terrible, and I had pains in parts of my body that no one had previously associated with certain foods I had been eating. I was overweight, and have lost over 2 stone in weight. Sal has helped me mentally, emotionally, and physically, I am now free, I play football with my son and enjoy what challenges life brings.`
+    },
+    {
+      name: "LO",
+      text: `Sal has resolved many of my long-term issues on a physical level, has highlighted nutritional deficiencies & food sensitivities, but most profoundly, has worked on and released long-held emotional issues that have held me back throughout my life.
+
+He has a fascinating life story that has led to a journey of self-development and breadth of knowledge, which he brings to his consultations. He has a deep understanding of the effects of emotional pain causing physical pain, is intuitive as well as knowledgeable, and is excellent at explaining what he does and why. I can't recommend him highly enough.`
+    },
+    {
+      name: "Vicky",
+      text: `I've been seeing Sal for about 5 years now, and I have countless examples of how he's helped me, but one story stands out to show just how powerful his channeling really is.
+
+Ten years ago, I had an unwanted pregnancy that ended in miscarriage. It's not something that comes up often for me, and honestly, it's not something I think about much in my everyday life anymore. A friend of mine recently went through a pregnancy loss of her own. The very next day, I had a session with Sal. Without me saying a single word about any of this, he pinpointed that we needed to do some emotional release work around an incident from 10 years ago. Then, completely unprompted, he said it was about the loss of a baby.
+
+Call it a spooky coincidence, call it whatever you want, but I can't fathom how Sal would have known this was sitting in the back of my mind, stirred up by something that had happened just the day before. The timing and the precision of it felt too uncanny to dismiss. We did the session, and I released suppressed, residual emotion I'd been carrying for 10 years. I came away feeling lighter, and experiencing love and gratitude toward my own body. It's powerful stuff.
+
+If you're ready to do the REAL work of unearthing trauma and baggage and expressing your suppressed emotions, I suggest you book in with Sal. As well as the other healing modalities he weaves in, this has really helped me create a sense of peace and self-acceptance I've never experienced before. I do my sessions over Zoom and they work brilliantly.`
+    },
+    {
+      name: "Astrid",
+      text: `I'd really would like to share my experiences since I've been doing sessions with Sal and Charlie for quite a while now…
+
+The support they offer me allows me to (step by step) release layers of emotional trauma and experiences which are stuck in my physical, mental and emotional body for years.
+
+Every session is different, depends on at which layer support is needed in the moment and where I am at. Nothing is forced. It's a gradual process in which Sal's support is an immense opportunity to open for what needs to come to the surface.
+
+His approach is done with so much care, compassion and allowance.
+
+Before going into a session, (a topic), Sal aligns with his aspect, which he calls Charlie, to ask Charlie for guidance and which aspect (emotional, physical, energetic) needs to be looked at. It is amazingly accurate.
+
+When working on the physical, Sal guides me to the meridian points which are blocked and gives instructions in how to open them myself.
+
+When emotional issues needed to be resolved, he guides me to the moment in this life or past lives where the emotion got stuck.
+
+Even contact and connect with parts of Self in previous life's are levels he works on. It's stunning and so accurate and to the point.
+
+Experiences aren't easy to express in words, for in this process, things happen which can't even be explained with words.
+
+On the other hand, I believe experiencing this journey in healing yourself would probably be a different one for everyone. But for someone who is ready and committed to heal the layers of self, this (Sal and Charlie's way of support) is definitely of great support and an inspirational way of helping people to heal themselves. Bring you back in alignment with heart, body, and mind coherence.`
+    },
+    {
+      name: "Catherine",
+      text: `I'm now in my 60s and have been seeing Sal regularly for well over a decade, and I can honestly say I feel healthier now than I did in my late 40s. His approach is completely holistic - whether I need help physically, emotionally, nutritionally or energetically, and on a few occasions even going back to previous lifetimes, he always seems to know exactly what my body needs, using kinesiology and his connection with 'Charlie'.
+
+With regular treatments and by following his advice, I've maintained a balanced lifestyle and good health. In fact, I haven't needed to see a doctor in all the years I've been seeing Sal, which says a great deal.
+
+What I appreciate most is that Sal never just treats the obvious problem. He looks at the whole person and works to find the underlying cause. His knowledge, intuition and genuine care are second to none, and every treatment leaves me feeling healthier, more balanced and better able to deal with whatever life throws at me.
+
+I'm incredibly grateful for everything Sal has done for me over the years.`
+    },
+    {
+      name: "KD",
+      text: `During my last session with Sal, he asked me to touch points on my body as we focussed on my childhood, and I found myself overwhelmed with sadness as the memories of past emotions took over. However, it became apparent these emotions are also in the present. I felt myself almost in a childlike state, as though Sal was communicating with my Inner Child. I had a resounding feeling of relief after the session, I felt I had let go of something I couldn't put my finger on.
+
+I am in my third week of the carnivore diet advised by Sal. Have lost 5 kilos.
+
+Right away, within the first week I noticed my digestive issues were predominantly gone! I had a lack of energy that I addressed with Sal after the first week, and he advised me on homoeopathic remedies and supplements.
+
+Before coming to Sal I suffered from headaches, stomach pains, and sinus issues. I haven't had any since, and my skin and complexion is improving.`
+    },
+    {
+      name: "Heather",
+      text: `Whilst I can hardly comprehend the methods or the vast knowledge & gift that Sal has to offer, it makes so much sense to me that any emotional or physical blockages within our body can create pain, anxiety & progressive illness.
+
+Sal seems to fathom all of these entities with a most calming persona.
+
+I know little about chakras & acupuncture, but on occasions, as he is treating me he tells me to put my hands on certain places in my body. I have experienced incredibly powerful emotions that came 'out of the blue', leaving me quite exhausted from the intensity for a day or two; but feeling more enlightened & understanding of myself.
+
+I never cried for years, somehow being with Sal brings my emotions to the surface.`
+    },
+    {
+      name: "Anonymous",
+      text: `I have seen Sal for a short while now, already I have noticed positive changes in my wellbeing. Initially, I hoped to improve my low levels of energy.
+
+With Sal's help, these have improved, and as an added bonus my sleeping has got a lot better too.
+
+I wasn't expecting to deal with childhood traumas. Working with Sal is to go on a Journey, whereby I have released previous blockages that have allowed me to feel more grounded emotionally, and I don't feel so up and down.
+
+It's great to have an open discussion with Sal, and gain a different perspective.`
+    },
+    {
+      name: "Gordon",
+      text: `When I first started visiting Sal, I was unsure what to expect. I hoped seeing someone of his experience and abilities might lead to a better sense of well-being.
+
+Sal has worked on my health, emotions and physical well-being. Each session I have learned something new. I have found myself to be a better person. I have learned with him to be honest with myself. With his direction and guidance, I feel I have overcome things that have kept me wrapped up emotionally for years.
+
+I am sleeping better, I am more positive and generally feel a stronger sense about myself. I have built a strong trust for Sal and I look forward to seeing him.`
+    },
+    {
+      name: "GP",
+      text: `In this one session with Sal we were working on a sensitive area of my left thigh, no matter how much we worked on it, it was still tender. Sal changed tack, he shared that there was emotional trauma in the thigh.
+
+Using levels of soul integration, he worked out that it was connected to a traumatic experience I had as a 14-year-old (I am now 48) when I crashed my bike and landed on the left knee, and was narrowly missed by a double-decker bus and ended in hospital.
+
+We then addressed the trauma of the event with levels of soul integration and consoled my younger self there and then. The experience was nothing short of miraculous.`
+    },
+    {
+      name: "Annette",
+      text: `Sal's treatments will blow your mind, can't recommend highly enough. I was lucky enough to have two treatments with Sal during a trip to Scotland, and felt a huge leap in my higher consciousness.`
+    },
+    {
+      name: "Garry",
+      text: `I now have had 3 sessions with Sal, The first one was interesting, Sal put me on a diet as I am overweight (25 st).
+
+The second session was more relaxing as we spoke of my youth and the problems I had had, as well as his doing acupuncture and relaxing my mind.
+
+The third was a lot of acupuncture; by the end of the session I was so relaxed I nearly fell asleep. I have also lost 2 stone in weight in these 3 weeks.
+
+Sal definitely has a talent - I am looking forwards to more sessions with him as he makes me feel better.`
+    }
+  ];
+
+  const grid = document.getElementById('testimonial-grid');
+  const overlay = document.getElementById('testimonial-overlay');
+  const modalName = document.getElementById('testimonial-modal-name');
+  const modalText = document.getElementById('testimonial-modal-text');
+  const closeBtn = document.getElementById('testimonial-close');
+
+  testimonials.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    card.innerHTML = `
+      <div class="testimonial-card-preview">${t.text}</div>
+      <p class="testimonial-card-name">${t.name}</p>
+    `;
+    card.addEventListener('click', () => openTestimonial(i));
+    grid.appendChild(card);
+  });
+
+  function openTestimonial(i) {
+    modalName.textContent = testimonials[i].name;
+    modalText.textContent = testimonials[i].text;
+    overlay.classList.add('active');
+  }
+
+  function closeTestimonial() {
+    overlay.classList.remove('active');
+  }
+
+  closeBtn.addEventListener('click', closeTestimonial);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeTestimonial();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeTestimonial();
+  });
+</script>
