@@ -10,10 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Jost:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
-
 <header class="site-header">
   <nav class="nav">
     <a class="nav__brand" href="index.html">
@@ -24,17 +23,21 @@
     <ul class="nav__links">
       <li><a href="index.html" aria-current="page">Home</a></li>
       <li><a href="about.html">About Sal</a></li>
-      <li><a href="course.html">Introductory Course</a></li>
-      <li><a href="advanced-course.html">Advanced Course</a></li>
+      <li class="nav__dropdown">
+        <a href="#">Courses</a>
+        <ul class="nav__dropdown-menu">
+          <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+          <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+          <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
+        </ul>
+      </li>
       <li><a href="sessions.html">1-1 Sessions</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
-
 <main>
-
   <section class="hero">
     <div class="hero__stage">
       <svg class="ring-motif" viewBox="0 0 600 600" aria-hidden="true"><g id="ring-outer"><circle cx="300.00" cy="20.00" r="2.2" fill="currentColor"/>
@@ -94,14 +97,11 @@
         <source src="hero-logo.mp4" type="video/mp4">
       </video>
     </div>
-
     <h1>A guided path back to who you truly are.</h1>
-
     <p class="lede" style="font-style: normal; max-width: 46ch; margin: 0 auto;">
       Through my work as a healer and channel I help people move from confusion, disconnection and pain, into a place of clarity, self-love and true health.
     </p>
   </section>
-
   <section class="section section--dim">
     <div class="doorways">
       <a class="doorway" href="about.html">
@@ -110,9 +110,9 @@
         <p>35 years walking the path of the healer and the story behind Ego &amp; Soul Integration.</p>
         <span class="link-label">Read his story &rarr;</span>
       </a>
-      <a class="doorway" href="course.html">
+      <a class="doorway" href="course-1.html">
         <svg class="doorway__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <h3>The Introductory Course</h3>
+        <h3>Course 1: The Self Discovery Path</h3>
         <p>A 12-week guided journey into who you truly are, fully online, wherever you are.</p>
         <span class="link-label">Explore the course &rarr;</span>
       </a>
@@ -124,7 +124,6 @@
       </a>
     </div>
   </section>
-
   <section class="section">
     <div class="container" style="max-width: 640px;">
       <a class="doorway" href="contact.html" style="display:block; background: var(--terracotta); color: var(--forest-deep); border-color: var(--terracotta);">
@@ -135,9 +134,7 @@
       </a>
     </div>
   </section>
-
 </main>
-
 <footer class="site-footer">
   <div class="container--wide">
     <div class="footer__top">
@@ -147,8 +144,9 @@
       </a>
       <ul class="footer__links">
         <li><a href="about.html">About</a></li>
-        <li><a href="course.html">Introductory Course</a></li>
-        <li><a href="advanced-course.html">Advanced Course</a></li>
+        <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+        <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+        <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
         <li><a href="sessions.html">1-1 Sessions</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -157,8 +155,26 @@
     <small>&copy; <span id="year"></span> Sal March &mdash; Ego &amp; Soul Integration.</small>
   </div>
 </footer>
-
 <script src="main.js?v=4"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.querySelectorAll('.nav__dropdown > a').forEach(function (toggle) {
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    var parent = toggle.parentElement;
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      if (d !== parent) d.classList.remove('is-open');
+    });
+    parent.classList.toggle('is-open');
+  });
+});
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.nav__dropdown')) {
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      d.classList.remove('is-open');
+    });
+  }
+});
+</script>
 </body>
 </html>

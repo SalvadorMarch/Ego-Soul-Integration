@@ -10,10 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Jost:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
-
 <header class="site-header">
   <nav class="nav">
     <a class="nav__brand" href="index.html">
@@ -24,17 +23,21 @@
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Sal</a></li>
-      <li><a href="course.html">Introductory Course</a></li>
-      <li><a href="advanced-course.html">Advanced Course</a></li>
+      <li class="nav__dropdown">
+        <a href="#">Courses</a>
+        <ul class="nav__dropdown-menu">
+          <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+          <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+          <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
+        </ul>
+      </li>
       <li><a href="sessions.html">1-1 Sessions</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
       <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
   </nav>
 </header>
-
 <main>
-
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Get in Touch</p>
@@ -42,13 +45,11 @@
       <p class="lede">I'd love to offer a free 20-min discovery call, if you'd like to explore joining one of my courses, or having 1-1 sessions with me.</p>
     </div>
   </section>
-
   <section class="section">
     <div class="container">
       <p style="text-align:center; max-width:52ch; margin: 0 auto 2.5rem;">
         All my offerings are available remotely via Zoom, so distance is not an issue. If you prefer an in-person session, my practice is in St Andrews, Scotland.
       </p>
-
       <!--
         EDITING NOTE FOR VICKY:
         Replace YOUR_FORM_ID below with your real Formspree form ID once
@@ -66,24 +67,20 @@
         </div>
         <div class="form-row">
           <label for="message">What are you interested in? (optional)</label>
-          <textarea id="message" name="message" rows="4" placeholder="e.g. the Introductory Course, the Advanced Course, 1-1 sessions, or just a discovery call"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="e.g. Course 1: The Self Discovery Path, Course 2: The Self Healing Path, Course 3: The Past Life Reintegration Path, 1-1 sessions, or just a discovery call"></textarea>
         </div>
         <button type="submit" class="btn btn--gold" style="width:100%; justify-content:center;">Send</button>
         <p class="form-note">I'll be in touch shortly to arrange your free 20-min discovery call.</p>
         <div class="form-success" role="status">Thank you &mdash; your message is on its way to me. I'll be in touch shortly.</div>
         <div class="form-error" role="alert">Something went wrong sending that. Please try again.</div>
       </form>
-
       <div class="divider" aria-hidden="true" style="margin-top:3rem;"><span></span><span></span><span></span><span></span><span></span></div>
-
       <ul class="contact-list" style="text-align:center; align-items:center; margin-top:2rem;">
         <li><a href="https://www.youtube.com/channel/UCn2NgQiYAP6TBAA6CSMgKqQ" target="_blank" rel="noopener">YouTube Channel</a></li>
       </ul>
     </div>
   </section>
-
 </main>
-
 <footer class="site-footer">
   <div class="container--wide">
     <div class="footer__top">
@@ -93,8 +90,9 @@
       </a>
       <ul class="footer__links">
         <li><a href="about.html">About</a></li>
-        <li><a href="course.html">Introductory Course</a></li>
-        <li><a href="advanced-course.html">Advanced Course</a></li>
+        <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+        <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+        <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
         <li><a href="sessions.html">1-1 Sessions</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -103,8 +101,26 @@
     <small>&copy; <span id="year"></span> Sal March &mdash; Ego &amp; Soul Integration.</small>
   </div>
 </footer>
-
 <script src="main.js?v=4"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.querySelectorAll('.nav__dropdown > a').forEach(function (toggle) {
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    var parent = toggle.parentElement;
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      if (d !== parent) d.classList.remove('is-open');
+    });
+    parent.classList.toggle('is-open');
+  });
+});
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.nav__dropdown')) {
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      d.classList.remove('is-open');
+    });
+  }
+});
+</script>
 </body>
 </html>

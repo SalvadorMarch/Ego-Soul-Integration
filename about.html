@@ -10,10 +10,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Jost:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
-
 <header class="site-header">
   <nav class="nav">
     <a class="nav__brand" href="index.html">
@@ -24,17 +23,21 @@
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html" aria-current="page">About Sal</a></li>
-      <li><a href="course.html">Introductory Course</a></li>
-      <li><a href="advanced-course.html">Advanced Course</a></li>
+      <li class="nav__dropdown">
+        <a href="#">Courses</a>
+        <ul class="nav__dropdown-menu">
+          <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+          <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+          <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
+        </ul>
+      </li>
       <li><a href="sessions.html">1-1 Sessions</a></li>
       <li><a href="testimonials.html">Testimonials</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
-
 <main>
-
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">About</p>
@@ -42,19 +45,15 @@
       <p class="lede">35 years walking the path of the healer.</p>
     </div>
   </section>
-
   <section class="section" style="padding-bottom: 0;">
     <div class="about-intro">
       <img class="about-portrait" src="sal-portrait.jpg" alt="Sal March">
       <p class="about-intro__statement">I've spent 35 years walking the path of the healer, helping others find their way back to themselves.</p>
     </div>
   </section>
-
   <section class="section">
     <div class="container prose">
-
       <p class="lede">Over that time I've trained and practised across a vast range of modalities:</p>
-
       <ul>
         <li>Spiritual Healing</li>
         <li>Gestalt Psychotherapy</li>
@@ -66,38 +65,28 @@
         <li>Massage</li>
         <li>Brandon's Journey therapy</li>
       </ul>
-
       <p>This grounding gives my work a rare depth: I move fluently between the physical, emotional, and energetic layers of a person, rather than treating them as separate.</p>
-
       <div class="divider" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-
       <h2>Ego &amp; Soul</h2>
       <p>At the heart of everything I teach is the relationship between Ego and Soul. I work with people to release the trauma, suppressed emotion, and old survival patterns held in the body - the "ego structures" we build to protect ourselves. When required, we also revisit past lives to release karmic bonds that have cast a long shadow into your present life, so that you truly may shine once more.</p>
       <p>Central threads in my work are: shadow work, emotional release through the chakras and the dismantling of protective armour and limiting beliefs.This all builds up in the body causing physical pain, discomfort and disease. It's this ongoing exploration that gave the Ego & Soul Integration work its name: aligning the ego with the soul, rather than them being in conflict with one another.</p>
-
       <h2>A Channel</h2>
       <p>Alongside this, I'm also a channel. For several years I've been in regular communication with a higher-dimensional soul I call "Charley" and more recently with a highly evolved consciousness I refer to as "The Collective." Through this connection, I share teachings on the nature of the soul, humanity's place within a much larger cosmic story, and what I understand to be a pivotal window for spiritual awakening in the years ahead.</p>
-
       <p class="pull">For me, the healing work and the channelling aren't separate paths but two expressions of the same inquiry - into who we really are beneath the ego, and what we're here to remember.</p>
-
       <p>I bring this same blend of grounded practitioner experience and expanded perspective into everything I teach.</p>
-
     </div>
   </section>
-
   <section class="section section--warm" style="text-align:center;">
     <div class="container">
       <h2>Ready to begin?</h2>
       <p style="max-width: 48ch; margin: 0 auto 1.6rem;">Explore the Ego &amp; Soul Integration course, or get in touch to talk about 1-1 sessions.</p>
       <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-        <a class="btn btn--gold" href="course.html">Explore the course</a>
+        <a class="btn btn--gold" href="course-1.html">Explore the course</a>
         <a class="btn btn--ghost" href="contact.html">Get in touch</a>
       </div>
     </div>
   </section>
-
 </main>
-
 <footer class="site-footer">
   <div class="container--wide">
     <div class="footer__top">
@@ -107,8 +96,9 @@
       </a>
       <ul class="footer__links">
         <li><a href="about.html">About</a></li>
-        <li><a href="course.html">Introductory Course</a></li>
-        <li><a href="advanced-course.html">Advanced Course</a></li>
+        <li><a href="course-1.html">Course 1 - The Self Discovery Path</a></li>
+        <li><a href="course-2.html">Course 2 - The Self Healing Path</a></li>
+        <li><a href="course-3.html">Course 3 - The Past Life Reintegration Path</a></li>
         <li><a href="sessions.html">1-1 Sessions</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -117,8 +107,26 @@
     <small>&copy; <span id="year"></span> Sal March &mdash; Ego &amp; Soul Integration.</small>
   </div>
 </footer>
-
 <script src="main.js?v=4"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.querySelectorAll('.nav__dropdown > a').forEach(function (toggle) {
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    var parent = toggle.parentElement;
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      if (d !== parent) d.classList.remove('is-open');
+    });
+    parent.classList.toggle('is-open');
+  });
+});
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.nav__dropdown')) {
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
+      d.classList.remove('is-open');
+    });
+  }
+});
+</script>
 </body>
 </html>
