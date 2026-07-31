@@ -17,6 +17,9 @@
   --beige: #d8c2b6;
   --maroon: #653640;
   --red: #bc544d;
+  --sage: #b7cdb1;
+  --sage-tint: #cddbca;
+  --sage-pale: #dae5d7;
 
   /* ---- palette (semantic roles — kept from v1 so the rest of the
      stylesheet below doesn't need to change) ---- */
@@ -117,6 +120,7 @@ p:last-child { margin-bottom: 0; }
 }
 .section--dark h1, .section--dark h2, .section--dark h3 { color: var(--paper); }
 .section--dark p { color: rgba(246, 242, 232, 0.78); }
+.section--dark strong { color: var(--gold-soft); }
 
 .section--dim {
   background: var(--paper-dim);
@@ -128,6 +132,13 @@ p:last-child { margin-bottom: 0; }
   background: var(--terracotta-soft);
 }
 .section--warm .btn--ghost { border-color: var(--forest-deep); color: var(--forest-deep); }
+
+/* A soft sage alternative, used to add rhythm between paper/beige/terracotta
+   sections without introducing a new colour outside the palette. */
+.section--sage {
+  background: var(--sage-pale);
+}
+.section--sage .eyebrow { color: var(--forest); }
 
 /* ---------------------------------------------------------
    Dotted ring motif — signature element
@@ -526,6 +537,28 @@ p:last-child { margin-bottom: 0; }
 }
 .summary-card dt { font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; color: var(--gold-soft); align-self: baseline; }
 .summary-card dd { margin: 0; }
+
+/* cohort date banner (course pages) */
+.cohort-banner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.cohort-banner .eyebrow { color: var(--maroon); }
+.cohort-banner .cohort-date {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--forest-deep);
+  margin: 0.3rem 0 1.3rem;
+}
+
+/* large price callout (investment sections) */
+.price-tag {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  color: var(--gold-soft);
+  margin: 0.15em 0 0.5em;
+}
 
 /* ---------------------------------------------------------
    Testimonials
