@@ -247,6 +247,61 @@ p:last-child { margin-bottom: 0; }
   border-color: var(--gold);
 }
 
+/* Courses dropdown */
+.nav__dropdown { position: relative; }
+.nav__dropdown > a::after {
+  content: "\25BE";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.9em;
+  transition: transform 0.15s ease;
+}
+.nav__dropdown.is-open > a::after,
+.nav__dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+.nav__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.5rem;
+  min-width: 270px;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  box-shadow: 0 14px 30px -18px rgba(31, 61, 46, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  z-index: 50;
+}
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu,
+.nav__dropdown.is-open .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav__dropdown-menu li + li { margin-top: 0.15rem; }
+.nav__dropdown-menu a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border-radius: 7px;
+  font-size: 0.74rem;
+  white-space: normal;
+  line-height: 1.35;
+  border-bottom: none !important;
+  color: var(--ink-soft);
+}
+.nav__dropdown-menu a:hover,
+.nav__dropdown-menu a[aria-current="page"] {
+  background: var(--paper-dim);
+  color: var(--forest-deep);
+}
+
 .nav__toggle {
   display: none;
   background: none;
@@ -272,7 +327,37 @@ p:last-child { margin-bottom: 0; }
     gap: 1rem;
   }
   .nav__links.is-open { display: flex; }
+
+  /* on small screens the dropdown becomes a simple inline expand
+     instead of a floating panel, since hover isn't reliable on touch */
+  .nav__dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0.4rem 0 0 1rem;
+    margin: 0;
+    min-width: 0;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+  }
+  .nav__dropdown.is-open .nav__dropdown-menu { display: block; }
+  .nav__dropdown-menu a { padding: 0.5rem 0; }
 }
+
+/* placeholder badge used on not-yet-launched course pages */
+.coming-soon-card {
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  padding: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.coming-soon-card .eyebrow { color: var(--red); }
 
 /* ---------------------------------------------------------
    Hero (landing page)
