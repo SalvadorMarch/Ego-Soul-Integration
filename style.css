@@ -637,6 +637,64 @@ p:last-child { margin-bottom: 0; }
   margin: 0.3rem 0 1.3rem;
 }
 
+/* upcoming cohort dates — row of individual date cards */
+.cohort-dates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  max-width: 620px;
+  margin: 1.4rem auto 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+.cohort-dates .date-chip {
+  flex: 1 1 100px;
+  max-width: 130px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  min-width: 108px;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.cohort-dates .date-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -18px rgba(31, 61, 46, 0.35);
+  border-color: var(--gold);
+}
+.date-chip__day {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--forest-deep);
+}
+.date-chip__month {
+  display: block;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: var(--maroon);
+  margin-top: 0.35rem;
+}
+.date-chip__year {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+}
+.cohort-banner .cohort-note {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
 /* large price callout (investment sections) */
 .price-tag {
   font-family: var(--font-display);
