@@ -9,41 +9,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-// Formspree AJAX submit — keeps people on the page with a friendly message
-document.querySelectorAll('form[data-formspree]').forEach(function (form) {
-  var success = form.querySelector('.form-success');
-  var error = form.querySelector('.form-error');
+  // Formspree AJAX submit — keeps people on the page with a friendly message
+  document.querySelectorAll('form[data-formspree]').forEach(function (form) {
+    var success = form.querySelector('.form-success');
+    var error = form.querySelector('.form-error');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (success) success.style.display = 'none';
-    if (error) error.style.display = 'none';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (success) success.style.display = 'none';
+      if (error) error.style.display = 'none';
 
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { Accept: 'application/json' }
-    })
-      .then(function (response) {
-        if (response.ok) {
-          form.reset();
-
-          // Send successful enquiry to Google Analytics
-          if (typeof gtag === 'function') {
-            gtag('event', 'contact_form_submit', {
-              event_category: 'engagement',
-              event_label: 'Contact form'
-            });
-          }
-
-          if (success) success.style.display = 'block';
-        } else {
-          if (error) error.style.display = 'block';
-        }
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
       })
-      .catch(function () {
-        if (error) error.style.display = 'block';
-      });
+        .then(function (response) {
+          if (response.ok) {
+            form.reset();
+
+            // Send successful enquiry to Google Analytics
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                form_name: 'Contact form'
+              });
+            }
+
+            if (success) success.style.display = 'block';
+          } else {
+            if (error) error.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          if (error) error.style.display = 'block';
+        });
+    });
   });
 });
